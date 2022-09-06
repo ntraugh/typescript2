@@ -10,6 +10,8 @@ type Task = {
 const input = document.querySelector<HTMLInputElement>("#new-task-title")
 const list = document.querySelector<HTMLUListElement>("#list")
 const taskForm = document.querySelector<HTMLFormElement>("#new-task-form")
+// saying tasks is a type of an array of Tasks
+const tasks: Task[] = []
 
 
 function addListItem(task: Task) {
@@ -18,8 +20,13 @@ function addListItem(task: Task) {
   const label = document.createElement("label")
   const checkbox = document.createElement("input")
 
+  checkbox.addEventListener("change", () => {
+    task.completed = checkbox.checked
+    console.log(task)
+  })
   // create our checkbox
   checkbox.type = "checkbox"
+  checkbox.checked = task.completed
   // append the checkbox and the task title to our label
   label.append(checkbox, task.title)
   item.append(label)
@@ -39,6 +46,8 @@ taskForm?.addEventListener("submit", e => {
     completed: false,
     createdAt: new Date()
   }
+  tasks.push(newTask)
   addListItem(newTask)
+  input.value = ""
 })
 
