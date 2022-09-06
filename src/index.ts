@@ -1,5 +1,6 @@
 type ID = string    
 type PopularTag = string
+type MaybePopularTag = PopularTag | null
 
 // creating a global interface to use for our "users"
 interface UserInterface {
@@ -17,6 +18,8 @@ interface newUserInterface {
 
 const popularTags: PopularTag[] = ["dragon", "cofee"]
 
+const dragonsTag: MaybePopularTag = "dragon"
+
 let username: string = "alex";
 // setting pageName to be either type of string OR number
 let pageName: string | number = "1"
@@ -33,7 +36,6 @@ const getFullName = (name: string, surname: string): string => {
     return  name + " " + surname;
 }; 
 
-console.log(getFullName("nate", "traugh"))
 
 
 // typescript out of the box can tell what your object value types are
@@ -52,4 +54,3 @@ const user2: UserInterface = {
     },
 }
 
-console.log(user.getMessage())
