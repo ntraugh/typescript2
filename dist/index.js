@@ -1,6 +1,9 @@
 "use strict";
+const popularTags = ["dragon", "cofee"];
 let username = "alex";
 let pageName = "1";
+let errorMessage = null;
+let newUser = null;
 const getFullName = (name, surname) => {
     return name + " " + surname;
 };

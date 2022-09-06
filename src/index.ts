@@ -1,14 +1,31 @@
+type ID = string    
+type PopularTag = string
+
 // creating a global interface to use for our "users"
 interface UserInterface {
+    id?: ID;
     name: string;
     age?: number;
     getMessage(): string;
 }
 
+interface newUserInterface {
+    name: string,
+    age: string,
+
+}
+
+const popularTags: PopularTag[] = ["dragon", "cofee"]
 
 let username: string = "alex";
 // setting pageName to be either type of string OR number
 let pageName: string | number = "1"
+
+let errorMessage: string | null = null;
+
+let newUser: newUserInterface | null = null
+
+
 
 // specifying the type of parameters we pass in as well as the output we expect from the function
 
