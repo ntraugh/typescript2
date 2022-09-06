@@ -1,4 +1,6 @@
 "use strict";
+let username = "alex";
+let pageName = "1";
 const getFullName = (name, surname) => {
     return name + " " + surname;
 };
