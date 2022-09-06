@@ -1,6 +1,7 @@
+// creating a global interface to use for our "users"
 interface User {
     name: string
-    age: number
+    age?: number
 }
 
 
@@ -20,5 +21,5 @@ const user: User =  {
 }
 
 const user2: User = {
-    name: "Smith"
+    name: "Smith",
 }

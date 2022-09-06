@@ -8,6 +8,6 @@ const user = {
     age: 30
 };
 const user2 = {
-    name: "Smith"
+    name: "Smith",
 };
 //# sourceMappingURL=index.js.map
