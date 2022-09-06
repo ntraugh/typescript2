@@ -11,7 +11,18 @@ const input = document.querySelector<HTMLInputElement>("#new-task-title")
 const list = document.querySelector<HTMLUListElement>("#list")
 const taskForm = document.querySelector<HTMLFormElement>("#new-task-form")
 // saying tasks is a type of an array of Tasks
-const tasks: Task[] = []
+const tasks: Task[] = loadTasks()
+tasks.forEach(addListItem)
+
+function loadTasks(): Task[] {
+  const taskJSON = localStorage.getItem("TASKS")
+  if(taskJSON == null) return []
+  return JSON.parse(taskJSON)
+}
+
+function saveTasks() {
+  localStorage.setItem("TASKS", JSON.stringify(tasks))
+}
 
 
 function addListItem(task: Task) {
@@ -22,7 +33,8 @@ function addListItem(task: Task) {
 
   checkbox.addEventListener("change", () => {
     task.completed = checkbox.checked
-    console.log(task)
+    saveTasks()
+    
   })
   // create our checkbox
   checkbox.type = "checkbox"
