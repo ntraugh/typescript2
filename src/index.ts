@@ -1,7 +1,8 @@
 // creating a global interface to use for our "users"
 interface User {
-    name: string
-    age?: number
+    name: string;
+    age?: number;
+    getMessage(): string;
 }
 
 
@@ -17,9 +18,17 @@ console.log(getFullName("nate", "traugh"))
 // typescript out of the box can tell what your object value types are
 const user: User =  {
     name: "joey",
-    age: 30
+    age: 30,
+    getMessage() {
+        return "Hello" + user.name
+    }
 }
 
 const user2: User = {
     name: "Smith",
+    getMessage() {
+        return "Hello" + user.name
+    },
 }
+
+console.log(user.getMessage())
